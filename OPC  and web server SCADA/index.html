@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCADA HMI</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery (for DOM manipulation) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+        .gauge {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px;
+        }
+        .card {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-4">SCADA HMI Dashboard</h1>
+
+        <!-- Temperature Gauge -->
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h4 class="card-title">Temperature (°C)</h4>
+                        <div id="temperature" class="gauge text-danger">--</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pressure Gauge -->
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h4 class="card-title">Pressure (kPa)</h4>
+                        <div id="pressure" class="gauge text-primary">--</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Humidity Gauge -->
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h4 class="card-title">Humidity (%)</h4>
+                        <div id="humidity" class="gauge text-success">--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Section (Optional: for interacting with the process, like setting values) -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Control Panel</h4>
+                        <form id="control-form">
+                            <div class="form-group">
+                                <label for="setTemperature">Set Temperature (°C):</label>
+                                <input type="number" id="setTemperature" class="form-control" placeholder="Enter temperature">
+                            </div>
+                            <div class="form-group">
+                                <label for="setPressure">Set Pressure (kPa):</label>
+                                <input type="number" id="setPressure" class="form-control" placeholder="Enter pressure">
+                            </div>
+                            <div class="form-group">
+                                <label for="setHumidity">Set Humidity (%):</label>
+                                <input type="number" id="setHumidity" class="form-control" placeholder="Enter humidity">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Send Command</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
